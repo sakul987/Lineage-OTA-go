@@ -14,7 +14,7 @@ func main(){
   otaHandler := handler.NewOTAHandler(otaService)
 
   //register handlers
-  http.HandleFunc("/", otaHandler.HandleX))
+  http.HandleFunc("/", otaHandler.HandleX)
 
   http.ListenAndServe(":6666", nil)
 }
