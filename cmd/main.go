@@ -1,15 +1,12 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"net/http"
 	"github.com/sakul987/Lineage-OTA-go/handler"
 	"github.com/sakul987/Lineage-OTA-go/internal"
 )
 
 func main(){
-  //router config
-  router := gin.Default()
-
   //services
   otaService := internal.NewOTAService()
 
@@ -17,7 +14,7 @@ func main(){
   otaHandler := handler.NewOTAHandler(otaService)
 
   //register handlers
-  otaHandler.Register(router)
+  http.HandleFunc("/", otaHandler.HandleX))
 
-  router.Run(":6666")
+  http.ListenAndServe(":6666", nil)
 }
